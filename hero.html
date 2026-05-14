@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karaelmas Yazılım Topluluğu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+
+   
+    :root {
+      --arkaplan: #0d1b2e;
+      --baslik:   white;
+      --yazi:     #94a3b8;
+      --buton:    white;
+      --buton-bg: transparent;
+    }
+
+    
+    body.acik-mod {
+      --arkaplan: #f1f5f9;
+      --baslik:   #0f172a;
+      --yazi:     #475569;
+      --buton:    #0f172a;
+      --buton-bg: transparent;
+    }
+
+   
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--arkaplan);
+      color: var(--baslik);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    
+    .mod-buton {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.1);
+      color: var(--buton);
+      border: 1px solid var(--yazi);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+
+    .mod-buton:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 80px;
+    }
+
+    .hero .ust-yazi {
+      font-size: 14px;
+      color: var(--yazi);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: bold;
+      color: var(--baslik);
+      margin: 0 0 20px 0;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--yazi);
+      max-width: 700px;
+      line-height: 1.7;
+      margin: 0 0 36px 0;
+    }
+
+    .hero a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--buton);
+      color: var(--buton);
+      text-decoration: none;
+      padding: 12px 24px;
+      font-size: 14px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .hero a:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 700px) {
+      .hero { padding: 0 24px; }
+      .hero h1 { font-size: 32px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  
+  <button class="mod-buton" onclick="modDegistir()">
+    <i class="fas fa-moon" id="mod-ikon"></i>
+    <span id="mod-yazi">Açık Mod</span>
+  </button>
+
+  
+  <div class="hero">
+    <div>
+      <p class="ust-yazi">Karaelmas Yazılım Topluluğu</p>
+      <h1>Geleceği Kodla!</h1>
+      <p>
+        Zonguldak Bülent Ecevit Üniversitesi Karaelmas Yazılım Topluluğu olarak,
+        teknolojiyi sadece tüketen değil, üreten bir nesil olmak için çabalıyoruz.
+      </p>
+      <a href="#">Topluluğa Katıl →</a>
+    </div>
+  </div>
+
+  
+  <script>
+    function modDegistir() {
+      var body = document.body;
+      var ikon = document.getElementById("mod-ikon");
+      var yazi = document.getElementById("mod-yazi");
+
+      if (body.classList.contains("acik-mod")) {
+        body.classList.remove("acik-mod");
+        ikon.className = "fas fa-moon";
+        yazi.textContent = "Açık Mod";
+      } else {
+        body.classList.add("acik-mod");
+        ikon.className = "fas fa-sun";
+        yazi.textContent = "Koyu Mod";
+      }
+    }
+  </script>
+
+</body>
+</html>
